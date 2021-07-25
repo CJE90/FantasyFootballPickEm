@@ -84,7 +84,7 @@ module.exports.listen = (client) => {
         //remove the command which is the first index
         const name = arguments.shift().toLowerCase();
 
-        if (name.startsWith(prefix)) {
+        if (name.startsWith('!')) {
             const command = allCommands[name.replace('!', '')];
             if (!command) {
                 return;
