@@ -2,8 +2,10 @@ const Discord = require('discord.js');
 //const config = require('./config.json');
 const client = new Discord.Client();
 const mongo = require('./mongo.js');
-const command = require('./commands.js');
+const command = require('./command.js');
 const userSchema = require('./schemas/user-schema');
+const path = require('path');
+const fs = require('fs');
 
 const connectToMongoDB = async () => {
     await mongo().then(async (mongoose) => {
@@ -17,36 +19,31 @@ const connectToMongoDB = async () => {
     })
 }
 
+const baseFile = 'command-base.js';
+const commandBase = require(`./commands/${baseFile}`);
+// Recursively read through all command files and folders
+const readCommands = dir => {
+    const files = fs.readdirSync(path.join(__dirname, dir));
+    for (const file of files) {
+        const stat = fs.lstatSync(path.join(__dirname, dir, file));
+        if (stat.isDirectory()) {
+            readCommands(path.join(dir, file));
+        }
+        else if (file !== baseFile) {
+            const option = require(path.join(__dirname, dir, file));
+            commandBase(option);
+        }
+    }
+}
+
 client.on('ready', () => {
     console.log("Client ready");
+
+    readCommands('commands');
+
+    commandBase.listen(client);
+
     connectToMongoDB();
-    command(client, 'ping', message => {
-        message.channel.send(`Pong`);
-    })
-    command(client, 'status', message => {
-        const content = message.content.replace(`!status `, ``);
-        client.user.setPresence({
-            activity: {
-                name: content,
-                type: "WATCHING"
-            }
-        })
-    })
-    command(client, 'poll', async message => {
-        await message.delete();
-        const addReactions = (message) => {
-            message.react('👍');
-            setTimeout(() => {
-                message.react('👎')
-            }, 750);
-        }
-        const fetchedMessage = await message.channel.messages.fetch({
-            limit: 1
-        })
-        if (fetchedMessage && fetchedMessage.first()) {
-            addReactions(fetchedMessage.first())
-        }
-    })
 })
 
 client.login(process.env.DJS_TOKEN);
