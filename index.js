@@ -1,10 +1,25 @@
 const Discord = require('discord.js');
 //const config = require('./config.json');
 const client = new Discord.Client();
+const mongo = require('./mongo.js');
 const command = require('./commands.js');
+const userSchema = require('./schemas/user-schema');
+
+const connectToMongoDB = async () => {
+    await mongo().then(async (mongoose) => {
+        try {
+            console.log('Connected to MongoDB');
+
+        } finally {
+            console.log('Closing MongoDB Connection');
+            mongoose.connection.close();
+        }
+    })
+}
 
 client.on('ready', () => {
     console.log("Client ready");
+    connectToMongoDB();
     command(client, 'ping', message => {
         message.channel.send(`Pong`);
     })
