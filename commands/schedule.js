@@ -10,6 +10,7 @@ module.exports = {
     callback: async (message, arguments, text, client, mongo, Discord) => {
 
         const weekWanted = arguments[0];
+        +weekWanted;
         //Ensure week is within range and also numeric
         if (weekWanted < 1 || weekWanted > 19 || typeof (weekWanted) != Number) {
             return message.reply('Sorry, that week is invalid');
