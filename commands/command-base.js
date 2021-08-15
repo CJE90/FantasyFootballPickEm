@@ -73,7 +73,7 @@ module.exports = (commandOptions) => {
     }
 }
 
-module.exports.listen = (client) => {
+module.exports.listen = (client, mongo, Discord) => {
     //Listen for messages
     client.on('message', message => {
         const { member, content, guild } = message;
@@ -89,6 +89,7 @@ module.exports.listen = (client) => {
             if (!command) {
                 return;
             }
+
 
             const {
                 permissions,
@@ -124,12 +125,14 @@ module.exports.listen = (client) => {
             if (arguments.length < minArgs || (
                 maxArgs !== null && arguments.length > maxArgs
             )) {
-                message.reply(`Incorrect syntax. Use !${alias} ${expectedArgs}`)
+
+                message.reply(`Incorrect syntax. Use !${command.alias} ${expectedArgs}`)
+
                 return;
             }
 
             //Handle the custom command code
-            callback(message, arguments, arguments.join(' '), client);
+            callback(message, arguments, arguments.join(' '), client, mongo, Discord);
         }
     })
 }

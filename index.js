@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-//const config = require('./config.json');
+const config = require('./config.json');
 const client = new Discord.Client();
 const mongo = require('./mongo.js');
 const command = require('./command.js');
@@ -7,17 +7,17 @@ const userSchema = require('./schemas/user-schema');
 const path = require('path');
 const fs = require('fs');
 
-const connectToMongoDB = async () => {
-    await mongo().then(async (mongoose) => {
-        try {
-            console.log('Connected to MongoDB');
+// const connectToMongoDB = async () => {
+//     await mongo().then(async (mongoose) => {
+//         try {
+//             console.log('Connected to MongoDB');
 
-        } finally {
-            console.log('Closing MongoDB Connection');
-            mongoose.connection.close();
-        }
-    })
-}
+//         } finally {
+//             console.log('Closing MongoDB Connection');
+//             mongoose.connection.close();
+//         }
+//     })
+// }
 
 const baseFile = 'command-base.js';
 const commandBase = require(`./commands/${baseFile}`);
@@ -41,9 +41,9 @@ client.on('ready', () => {
 
     readCommands('commands');
 
-    commandBase.listen(client);
+    commandBase.listen(client, mongo, Discord);
 
-    connectToMongoDB();
+    //connectToMongoDB();
 })
 
 client.login(process.env.DJS_TOKEN);
