@@ -90,7 +90,6 @@ module.exports.listen = (client, mongo, Discord) => {
                 return;
             }
 
-
             const {
                 permissions,
                 permissionError = "You do not have permission to run this command.",
