@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     name: String,
     id: String,
     picks: [],
-    scores: []
+    scores: [String]
 })
 
 module.exports = mongoose.model('users', userSchema);
