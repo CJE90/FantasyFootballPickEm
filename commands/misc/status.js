@@ -13,5 +13,5 @@ module.exports = {
         })
     },
     permissions: ['ADMINISTRATOR'],
-    requiredRoles: ['BotChannel']
+    requiredRoles: ['LordOfTheBot']
 }
