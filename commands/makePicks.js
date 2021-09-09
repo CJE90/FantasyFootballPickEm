@@ -46,7 +46,7 @@ module.exports = {
                     }
 
                     await userSchema.updateOne({ id: `${leagueMember}` }, { $set: { ["picks." + week]: teamPicks } });
-                    return message.reply(`I saved your picks for week${week}`);
+                    return message.reply(`I saved your picks for week ${week}`);
 
                 } finally {
                     console.log('Closing MongoDB Connection');
