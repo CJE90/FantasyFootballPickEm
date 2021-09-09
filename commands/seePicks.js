@@ -29,7 +29,7 @@ module.exports = {
 
                 const userPicks = nfl.nfl[picksData[count]].name;
 
-                const embedString = userPicks == homeTeam ? ` test 1 You picked the __**${homeTeam}**__ to beat the ${awayTeam}` : ` test 2 You picked the __**${awayTeam}**__ to beat the ${homeTeam}`;
+                const embedString = userPicks == homeTeam ? `You picked the __**${homeTeam}**__ to beat the ${awayTeam}` : `You picked the __**${awayTeam}**__ to beat the ${homeTeam}`;
 
                 embed.addField(`Game ${count + 1}`, embedString);
                 count++;
