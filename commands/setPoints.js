@@ -40,11 +40,12 @@ module.exports = {
                             }
                         }
                         await userSchema.updateOne({ name: `${users[i].name}` }, { $set: { ["scores." + week]: score } });
-                        return message.reply(`Points have been calculated for week ${week}`)
+
                     }
                 } finally {
                     console.log('Closing MongoDB Connection');
                     mongoose.connection.close();
+                    return message.reply(`Points have been calculated for week ${week}`)
                 }
             })
         }
