@@ -32,10 +32,13 @@ module.exports = {
 
                             primeTimeArray.forEach(x => {
                                 if (picksArray[x - 1] === winners[j]) {
+                                    console.log(`In primetime array: ${x}`)
+                                    console.log(`scoring points for ${picksArray[x - 1]} matching ${winners[j]} for user ${users[i]}`)
                                     score += addedPoints - 1;
                                 }
                             })
                             if (picksArray[j] === winners[j]) {
+                                console.log(`scoring points for ${picksArray[j]} matching ${winners[j]} for user ${users[i]}`)
                                 score++;
                             }
                         }
