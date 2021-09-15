@@ -28,19 +28,15 @@ module.exports = {
                     for (let i = 0; i < users.length; i++) {
                         let score = 0;
                         const picksArray = users[i].picks[`${week}`];
+
                         for (let j = 0; j < winners.length; j++) {
 
-                            primeTimeArray.forEach(x => {
-                                console.log(`x is ${x}`);
-                                console.log(`picksarray is ${picksArray}`);
-                                if (picksArray[x - 1] === winners[j]) {
-                                    console.log(`In primetime array: ${x}`)
-                                    console.log(`scoring points for ${picksArray[x - 1]} matching ${winners[j]} for user ${users[i].name}`)
+                            if (picksArray[j] === winners[j]) {
+
+                                if (primeTimeArray.includes(String(j + 1))) {
                                     score += addedPoints - 1;
                                 }
-                            })
-                            if (picksArray[j] === winners[j]) {
-                                console.log(`scoring points for ${picksArray[j]} matching ${winners[j]} for user ${users[i]}`)
+                                console.log(`scoring points for ${picksArray[j]} matching ${winners[j]} for user ${users[i].name}`)
                                 score++;
                             }
                         }
@@ -50,7 +46,7 @@ module.exports = {
                 } finally {
                     console.log('Closing MongoDB Connection');
                     mongoose.connection.close();
-                    return message.reply(`Points have been calculated for week ${week}`)
+                    message.reply(`Points have been calculated for week ${week}`)
                 }
             })
         }
