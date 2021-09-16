@@ -16,7 +16,7 @@ module.exports = {
                     const users = await userSchema.find();
                     users.forEach(x => {
                         const userId = x.id;
-                        if (x.picks.length === 1) {
+                        if (x.picks.length !== Number(week) + 1) {
                             message.channel.send(`<@${userId}> You havent put in your picks for week ${week}`)
                         }
                     })
