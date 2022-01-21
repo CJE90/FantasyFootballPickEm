@@ -11,7 +11,7 @@ module.exports = {
         var randomColor = Math.floor(Math.random() * 16777215).toString(16);
         const weekWanted = arguments[0];
         //Ensure week is within range and also numeric
-        if (weekWanted < 1 || weekWanted > 19 || isNaN(Number(weekWanted))) {
+        if (weekWanted < 1 || weekWanted > 20 || isNaN(Number(weekWanted))) {
             return message.reply('Sorry, that week is invalid');
         }
 
