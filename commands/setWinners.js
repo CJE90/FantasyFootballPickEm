@@ -19,6 +19,7 @@ module.exports = {
                 } finally {
                     console.log('Closing MongoDB Connection');
                     mongoose.connection.close();
+                    message.reply(`Winners have been set for week ${week}`)
                 }
             })
         }
