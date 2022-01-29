@@ -11,3 +11,20 @@ I created this Discord bot to keep track of the weekly games, the league members
 This bot was written in Javascript using the Discord.js library to do the heavy lifting. MongoDB is used as the backed to store the users and weekly games data. The bot is hosted on Heroku so will always be available during the season as well as the offseason.
 
 ## Commands and Screenshots
+!Schedule <week>  
+This command will show the Nfl schedule from the provided week.  
+Note that each games shows the Away team vs the Home team. Each team is also numbered. This is used in our next available command to pick the winners from each week  
+<img width="326" alt="Screen Shot 2022-01-29 at 5 53 43 PM" src="https://user-images.githubusercontent.com/78622890/151680253-aa35bad1-9f2f-4b2e-9a0f-81b364e06d45.png">  
+!makePicks <week> <games>  
+This command will allow the user to select who will be the winner of each game that week. The week is entered as the second parameter of the command and a string delimeted by commas or periods is used to store the chosen teans  
+![image](https://user-images.githubusercontent.com/78622890/151680386-b0dc4133-d702-4619-8ebe-4e83f73f7564.png)
+  
+!seePicks <week>  
+At any time users can enter this command to see who they selected for the provided week  
+![image](https://user-images.githubusercontent.com/78622890/151680458-f71ff0ad-a874-4bc2-ad1a-a661959711a1.png)
+  
+!setWinners <week> <winning_teams>  
+This is a priviledged command given by a custom role. Other league members are not allowed to set each weeks winners  
+The week being set is given as the first parameter and then a comma or period delimeted string. This will set the weeks winners in the MongoDB backedn
+  
+  
