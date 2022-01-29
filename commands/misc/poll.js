@@ -12,6 +12,7 @@ module.exports = {
                 message.react('👎')
             }, 750);
         }
+
         const fetchedMessage = await message.channel.messages.fetch({
             limit: 1
         }).catch((error) => {
