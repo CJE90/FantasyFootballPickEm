@@ -12,7 +12,7 @@ module.exports = {
         const week = arguments[0];
         const authorId = message.author.id;
 
-        if (week < 1 || week > 20 || isNaN(Number(week))) {
+        if (week < 1 || week > 21 || isNaN(Number(week))) {
             return message.reply('Sorry, that week is invalid');
         }
 
