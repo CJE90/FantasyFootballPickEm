@@ -16,7 +16,7 @@ module.exports = {
         const team = arguments[1];
         const week = arguments[0];
         //Ensure week is within range and also numeric
-        if (week < 1 || week > 21 || isNaN(Number(week))) {
+        if (week < 1 || week > 22 || isNaN(Number(week))) {
             return message.reply('Sorry, that week is invalid');
         }
         //const leagueMember = message.author.id;

@@ -10,7 +10,7 @@ module.exports = {
         const week = arguments[0];
         let randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-        if (week < 1 || week > 20 || isNaN(Number(week))) {
+        if (week < 1 || week > 22 || isNaN(Number(week))) {
             return message.reply('Sorry, that week is invalid');
         }
 
