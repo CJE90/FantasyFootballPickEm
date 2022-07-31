@@ -1,6 +1,8 @@
 module.exports = {
     commands: ['DraftDay', 'draftDay', 'draftday'],
-    callback: (message, arguments, text, client, mongo, Discord) => {
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         message.reply(`
         We will be drafting September 4th. Time is still not yet decided.
         Location will be 14 Southgrove Ct Columbia SC 29212.
@@ -24,6 +26,6 @@ module.exports = {
         Mike - Deebo Samuel (7th)
         
         `)
-    },
+    }
 
 }
