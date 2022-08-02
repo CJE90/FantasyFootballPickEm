@@ -24,6 +24,7 @@ module.exports = {
         Nolan - Justin Jefferson (10th)
         Morgan - Michael Pittman (10th)
         Mike - Deebo Samuel (7th)
+        Bill - Jalen Hurts (11th)
         `);
     }
 
