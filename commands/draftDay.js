@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 0,
     callback: (message, arguments, text) => {
         message.reply(`
-        We will be drafting September 4th. Time is still not yet decided.
+        We will be drafting September 4th. Time is at 4 pm.
         Location will be 14 Southgrove Ct Columbia SC 29212.
         LEAGUE DUES, KEEPERS, AND DRAFT PICK POSITION MUST BE IN BY AUGUST 21ST!!!
         Draft Order So Far (Not Set in Stone Until August 21st)
@@ -17,7 +17,9 @@ module.exports = {
         7.
         8.
         9.
-        10.
+        10. Chris
+
+        Morgan is the next to decide
 
         Keepers Knows So Far (Not Set in Stone Until August 21st)
         Chris - Johnathan Taylor (1st)
@@ -25,6 +27,7 @@ module.exports = {
         Morgan - Michael Pittman (10th)
         Mike - Deebo Samuel (7th)
         Bill - Jalen Hurts (11th)
+        Eric - Cooper Kupp (3rd)
         `);
     }
 
