@@ -14,12 +14,12 @@ module.exports = {
         4. Cody
         5.
         6.
-        7.
+        7. Morgan
         8.
         9.
         10. Chris
 
-        Morgan is the next to decide
+        Brandon is the next to decide followed by Nolan
 
         Keepers Knows So Far (Not Set in Stone Until August 21st)
         Chris - Johnathan Taylor (1st)
@@ -28,6 +28,9 @@ module.exports = {
         Mike - Deebo Samuel (7th)
         Bill - Jalen Hurts (11th)
         Eric - Cooper Kupp (3rd)
+
+        Who has already paid dues?
+        Chris
         `);
     }
 
